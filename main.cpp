@@ -2,6 +2,8 @@
 #include "Functions/Functions.cpp"
 #include "Checks/Checks.hpp"
 #include <vector>
+#include <sys/stat.h>
+#include <typeinfo>
 
 std::string getName(std::string name)
 {
@@ -36,6 +38,11 @@ public:
     }
 };
 
+void OptionPicked(std::string name)
+{
+    std::cout << name << std::endl;
+}
+
 int main(int argc, const char *argv[])
 {
     std::vector<std::string> OPTIONS = {"Y", "N"};
@@ -43,12 +50,16 @@ int main(int argc, const char *argv[])
     int option{};
     Args arg(OPTIONS);
 
+    std::cout << std::endl;
+    OptionPicked("Welcome to Create File App");
+    std::cout << std::endl;
+
     if (arg.GetArgs() == true)
     {
         if (strcmp(argv[1], "Y") == 0)
         {
-            std::cout << "Enter One, Two or Three: " << std::endl;
 
+            std::cout << "Enter One, Two or Three: " << std::endl;
             std::cin >> option;
 
             std::cout
