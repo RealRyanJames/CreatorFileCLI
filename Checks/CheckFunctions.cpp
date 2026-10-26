@@ -1,0 +1,6 @@
+namespace CheckFunctions
+{
+
+    bool isMessageEmpty();
+
+}
