@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Functions/Functions.cpp"
-#include "Checks.hpp"
+#include "Checks/Checks.hpp"
 
 std::string getName(std::string name)
 {
