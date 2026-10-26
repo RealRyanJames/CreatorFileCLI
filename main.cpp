@@ -15,28 +15,32 @@ std::string name(std::string name)
     return name;
 }
 
-class Args
+namespace Arg
 {
 
-private:
-    std::vector<std::string> str{};
-
-public:
-    Args(std::vector<std::string> arg)
+    class Args
     {
-        this->str = arg;
-    }
 
-    bool GetArgs()
-    {
-        if (this->str.empty())
+    private:
+        std::vector<std::string> str{};
+
+    public:
+        Args(std::vector<std::string> arg)
         {
-            return false;
+            this->str = arg;
         }
 
-        return true;
-    }
-};
+        bool GetArgs()
+        {
+            if (this->str.empty())
+            {
+                return false;
+            }
+
+            return true;
+        }
+    };
+}
 
 void OptionPicked(std::string name)
 {
@@ -48,7 +52,7 @@ int main(int argc, const char *argv[])
     std::vector<std::string> OPTIONS = {"Y", "N"};
 
     int option{};
-    Args arg(OPTIONS);
+    Arg::Args arg(OPTIONS);
 
     std::cout << std::endl;
     OptionPicked("Welcome to Create File App");
