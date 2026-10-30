@@ -1,5 +1,7 @@
 #include "./namespaces.cpp"
 #include <fstream>
+#include <ranges>
+#include <utility>
 
 void CreatorFile::create()
 {
@@ -8,13 +10,21 @@ void CreatorFile::create()
 
 void CreatorFile::CreatorFiles(std::string name, std::string (*func)(std::string))
 {
-    std::cout << func(name) << std::endl;
+    std::cout << func(std::move(name)) << std::endl;
 }
 
 void CreatorFile::GetName(std::string name, std::string (*fileName)(std::string))
 {
-    std::cout << "You Created: " << fileName(name) << std::endl;
+    std::cout << "You Created: " << fileName(std::move(name)) << std::endl;
 }
+enum TypeFileExtension
+{
+
+    CS,
+    RS,
+    JS,
+    TS,
+};
 
 void CreatorFile::CreateNamedFiled(std::string name)
 {

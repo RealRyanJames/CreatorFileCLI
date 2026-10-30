@@ -11,4 +11,6 @@ namespace CreatorFile
 
     void GetName(std::string name, std::string (*fileName)(std::string));
 
+    void Default(const std::string& fileName, std::string (*func)(std::string name));
+
 }
